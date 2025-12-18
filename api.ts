@@ -1,12 +1,18 @@
 import express from 'express';
 import cors from 'cors';
 import { Client } from 'pg';
+import 'dotenv/config';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const connectionString = 'postgresql://neondb_owner:npg_SPJ1qgvpchE0@ep-raspy-truth-adf8h7hp-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require';
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+  console.error('DATABASE_URL environment variable is missing');
+  process.exit(1);
+}
 
 const getClient = () => new Client({ connectionString });
 
@@ -29,13 +35,13 @@ app.post('/api/hackathons', async (req, res) => {
   try {
     await client.connect();
     const { title, url, deadline, priority, status, notes, theme, prize_pool } = req.body;
-    
+
     await client.query(
       `INSERT INTO hackathons (title, url, deadline, priority, status, notes, theme, prize_pool) 
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
       [title, url || '', deadline, priority, status, notes || null, theme || null, prize_pool || null]
     );
-    
+
     res.json({ success: true });
   } catch (error) {
     console.error('Error adding hackathon:', error);
@@ -51,12 +57,12 @@ app.patch('/api/hackathons/:id/status', async (req, res) => {
     await client.connect();
     const { id } = req.params;
     const { status } = req.body;
-    
+
     await client.query(
       'UPDATE hackathons SET status = $1, updated_at = NOW() WHERE id = $2',
       [status, id]
     );
-    
+
     res.json({ success: true });
   } catch (error) {
     console.error('Error updating status:', error);
@@ -71,9 +77,9 @@ app.delete('/api/hackathons/:id', async (req, res) => {
   try {
     await client.connect();
     const { id } = req.params;
-    
+
     await client.query('DELETE FROM hackathons WHERE id = $1', [id]);
-    
+
     res.json({ success: true });
   } catch (error) {
     console.error('Error deleting hackathon:', error);

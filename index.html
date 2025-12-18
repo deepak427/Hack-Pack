@@ -3,22 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HackTrack AI</title>
+    <title>Hack Pack</title>
+    <!-- Fonts: Playfair Display (Headers), Lora (Body), Caveat (Handwriting) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
+              sans: ['Lora', 'serif'], // Swapping default sans to Lora for a book feel
+              serif: ['Playfair Display', 'serif'],
+              hand: ['Caveat', 'cursive'],
+              mono: ['Courier Prime', 'monospace'],
             },
             colors: {
-              gray: {
-                750: '#2d3748',
-                850: '#1a202c',
-                950: '#0d1117',
+              paper: {
+                50: '#fdfbf7', // Main background
+                100: '#fdf6e3', // Old paper
+                200: '#eee8d5', // Darker paper
+                300: '#d3cbb8', // Borders
+              },
+              ink: {
+                400: '#586e75',
+                500: '#657b83', // Body text
+                800: '#073642',
+                900: '#002b36', // Headings
+              },
+              accent: {
+                red: '#dc322f', // Stamping
+                blue: '#268bd2',
+                yellow: '#b58900', // Gold/Highlight
+                cyan: '#2aa198',
               }
+            },
+            boxShadow: {
+              'paper': '2px 4px 12px rgba(0,0,0,0.08)',
+              'lifted': '4px 8px 20px rgba(0,0,0,0.12)',
+              'deep': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            },
+            backgroundImage: {
+              'paper-noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")",
             }
           },
         },
@@ -26,22 +54,35 @@
     </script>
     <style>
       body {
-        background-color: #0f172a; /* slate-950 */
-        color: #e2e8f0; /* slate-200 */
+        background-color: #fdfbf7;
+        color: #002b36;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
       }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
       /* Custom scrollbar */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 10px;
       }
       ::-webkit-scrollbar-track {
-        background: #1e293b; 
+        background: #fdfbf7; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #475569; 
-        border-radius: 4px;
+        background: #d3cbb8; 
+        border-radius: 5px;
+        border: 2px solid #fdfbf7;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #64748b; 
+        background: #93a1a1; 
+      }
+
+      /* Paper texture helper */
+      .bg-texture {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
       }
     </style>
   </head>
