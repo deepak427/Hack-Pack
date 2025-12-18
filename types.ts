@@ -1,36 +1,13 @@
-export enum Priority {
-  LOW = 'LOW',
-  MEDIUM = 'MEDIUM',
-  HIGH = 'HIGH',
-}
-
-export enum Status {
-  PLANNED = 'PLANNED',
-  REGISTERED = 'REGISTERED',
-  SUBMITTED = 'SUBMITTED',
-  WON = 'WON',
-  LOST = 'LOST',
-  EXPIRED = 'EXPIRED',
-  ABANDONED = 'ABANDONED',
-}
-
 export interface Hackathon {
   id: string;
   title: string;
   url: string;
-  deadline: string; // ISO Date String
-  priority: Priority;
-  status: Status;
+  deadline: string;
+  priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+  status: 'PLANNED' | 'REGISTERED' | 'IN_PROGRESS' | 'SUBMITTED' | 'WON' | 'LOST' | 'EXPIRED' | 'ABANDONED';
   notes?: string;
-  aiIdeas?: string; // Markdown content from Gemini
-  createdAt: string;
-}
-
-export type SortOption = 'DEADLINE_ASC' | 'DEADLINE_DESC' | 'PRIORITY_HIGH' | 'PRIORITY_LOW';
-
-export interface HackathonStats {
-  total: number;
-  upcoming: number;
-  won: number;
-  expired: number;
+  theme?: string;
+  prize_pool?: string;
+  created_at: string;
+  updated_at: string;
 }
