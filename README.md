@@ -1,20 +1,57 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# HackTrack AI
 
-# Run and deploy your AI Studio app
+Minimal hackathon management system with Neon PostgreSQL.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1jtAmFVRMMOgK2xvVlCZVXarDWZqKVFsT
+- Track hackathons with deadlines, priorities, and status
+- Filter by status and priority
+- Search by title and theme
+- Automatic sorting by deadline (soonest first)
+- Clean, minimal UI
 
-## Run Locally
+## Setup
 
-**Prerequisites:**  Node.js
+```bash
+npm install
 
+# Terminal 1 - Start API server (port 3002)
+npm run api
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+# Terminal 2 - Start frontend (port 3001)
+npm run dev
+```
+
+Open http://localhost:3001 in your browser.
+
+## Database
+
+- **Project**: HackTrack AI
+- **Project ID**: `late-mouse-62757284`
+- **Database**: `neondb`
+
+### Schema
+
+```sql
+CREATE TABLE hackathons (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title VARCHAR(255) NOT NULL,
+  url TEXT,
+  deadline TIMESTAMP NOT NULL,
+  priority VARCHAR(20) NOT NULL,
+  status VARCHAR(20) NOT NULL,
+  notes TEXT,
+  theme VARCHAR(255),
+  prize_pool VARCHAR(100),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+```
+
+## Tech Stack
+
+- React + TypeScript
+- Vite
+- Tailwind CSS
+- Neon PostgreSQL
+- Lucide Icons
