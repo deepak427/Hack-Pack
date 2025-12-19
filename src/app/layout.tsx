@@ -24,8 +24,56 @@ const courier = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: "Hack Pack",
-  description: "The Scholar's Strategy Journal for Hackathons",
+  title: {
+    default: "HackTrack AI - The Scholar's Strategy Journal",
+    template: "%s | HackTrack AI"
+  },
+  description: "A sophisticated hackathon management system with elegant Scholar's Desk design for tracking participation, progress, and outcomes.",
+  keywords: ["hackathon", "management", "tracker", "developer", "competition", "coding", "scholar", "strategy"],
+  authors: [{ name: "HackTrack AI Team" }],
+  creator: "HackTrack AI",
+  publisher: "HackTrack AI",
+  applicationName: "HackTrack AI",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  openGraph: {
+    title: "HackTrack AI - The Scholar's Strategy Journal",
+    description: "Track your hackathon journey with elegant design and smart features",
+    type: "website",
+    locale: "en_US",
+    siteName: "HackTrack AI",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HackTrack AI - The Scholar's Strategy Journal",
+    description: "Track your hackathon journey with elegant design and smart features",
+    creator: "@hacktrack_ai",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/icon", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.json",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({

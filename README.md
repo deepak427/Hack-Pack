@@ -1,6 +1,6 @@
 # HackTrack AI
 
-![Beta](https://img.shields.io/badge/version-v0.1.0--beta.1-orange?style=flat-square&logo=github) ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![Beta](https://img.shields.io/badge/version-v0.1.0--beta.2-orange?style=flat-square&logo=github) ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
 
 A sophisticated hackathon management system with elegant "Scholar's Desk" design for tracking participation, progress, and outcomes.
 

@@ -1,0 +1,27 @@
+{
+  "name": "HackTrack AI - The Scholar's Strategy Journal",
+  "short_name": "HackTrack AI",
+  "description": "A sophisticated hackathon management system with elegant Scholar's Desk design",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfbf7",
+  "theme_color": "#002b36",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "developer-tools", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}
